@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="">
+
+  <meta name="author" content="">
+
+  <title>Data Dashboard for hiring</title>
+  <!-- Bootstrap core CSS -->
+
+  <link href="assets\css\bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+
+  <link href="assets\css\sticky-footer.css" rel="stylesheet">
+
+  <link href="assets\css\dashboard.css" rel="stylesheet">
+
+  <!-- Include AngularJS Charts and AngularJS Diretive  -->
+
+  <script src="assets\js\angular.min.js"></script>
+
+  <script src="assets\js\Chart.min.js"></script>
+
+  <script src="assets\js\angular-chart.min.js"></script>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="assets\js\jquery.min.js"></script>
+
+  <script src="assets\js\bootstrap.min.js"></script>
+
+  <!--AngularJS Controller -->
+  <script type="text/javascript" src="assets\js\controller.js"></script>
+
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Navigation bar Header-->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Recruitment</a>
+      </div>
+
+      <div id="navbar" class="navbar-collapse collapse">
+        <!-- Links in Navigation bar-->
+        <ul class="nav navbar-nav navbar-right">
+
+          <li><a href="index.html">Dashboard</a></li>
+
+          <li><a href="workflow_description.html">Description</a></li>
+
+          <li><a href="underConstructionSite.html">Settings</a></li>
+
+          <li><a href="underConstructionSite.html">Help</a></li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+  <!-- Declare Controller Using AngularJS -->
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <div class="container-fluid">
+
+      <div class="row">
+        <!-- Dividing Page into Columns-->
+        <div class="col-sm-12 main">
+          <!-- Page Heading-->
+          <h1 class="page-header">Data Dashboard
+            <!-- Buttons For filter Year Wise -->
+            <button type="button" class="btn btn-primary pull-right" style="margin:2px" ng-repeat="y in year" ng-click="show(y)">{{y}}</button>
+          </h1>
+
+          <div class="row placeholders">
+            <div class="col-md-6 placeholder">
+              <!-- Big Box for extra attention-->
+              <div class="jumbotron" style="min-height: 320px">
+                <!-- Pie Chart displaying data of students hired last year-->
+                <canvas id="pie" class="chart chart-pie" chart-data="data_hired_last_year" chart-labels="labels_collegename" chart-options="options">
+                </canvas>
+                <h4>Percentage of students hired in the year {{year_value-1}} </h4>
+              </div>
+            </div>
+
+            <div class="col-md-6 placeholder">
+              <div class="jumbotron" style="min-height: 320px">
+                <!-- Bar Chart displaying data of average cgpa of students-->
+                <canvas id="bar" class="chart chart-bar" chart-data="data_cgpa" chart-labels="labels_collegename" chart-options="options_cgpa">
+                </canvas>
+                <h4>Average CGPA of Students</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row placeholders">
+            <div class="col-md-6 placeholder">
+              <div class="jumbotron" style="min-height: 320px">
+                <!-- Bar Chart displaying data of average scores of students scored in particular technology-->
+                <canvas id="bar" class="chart chart-bar" chart-series="series_technology" chart-colors="colours_technology" chart-data="data_technology"
+                  chart-labels="labels_collegename" chart-options="options_tech">
+                </canvas>
+                <h4>Average Test Score of Students in Technology</h4>
+              </div>
+            </div>
+
+            <div class="col-md-6 placeholder">
+              <div class="jumbotron" style="min-height: 320px">
+                <!-- Bar Chart displaying data of average students in particular stream-->
+                <canvas id="bar" class="chart chart-bar" chart-series="series_stream" chart-colors="colours_technology" chart-data="data_stream"
+                  chart-labels="labels_collegename" chart-options="options_stream">
+                </canvas>
+                <h4>Average Students in a Stream</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row placeholders">
+            <div class="col-md-12  placeholder">
+              <div class="jumbotron" style="min-height: 320px">
+                <!-- Bar Chart displaying data of average test scores of students scored in general aptitude-->
+                <canvas id="bar" class="chart chart-bar" chart-data="data_test_score" chart-labels="labels_collegename" chart-options="options_score">
+                </canvas>
+                <h4>Average Test Score of Students in General Aptitude</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Table Heading-->
+          <h2 class="sub-header">Hiring Details</h2>
+          <!-- Table for refrence-->
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th width="120">Year</th>
+                  <th width="120">College Name</th>
+                  <th width="120">CGPA</th>
+                  <th width="120">Test Score</th>
+                  <th width="120">Hired Last Year</th>
+                  <th width="120">Score in Java</th>
+                  <th width="120">Score in C</th>
+                  <th width="120">Score in Dot-Net</th>
+                  <th width="120">ECE</th>
+                  <th width="120">CSE</th>
+                  <th width="120">IT</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="y in years">
+                <tr ng-repeat="t in y.details">
+                  <td>{{y.year}}</td>
+                  <td>{{t.collegeName}}</td>
+                  <td>{{t.cgpa}}</td>
+                  <td>{{t.test_score}}</td>
+                  <td>{{t.hired_last_year}}</td>
+                  <td>{{t.technology_java}}</td>
+                  <td>{{t.technology_c}}</td>
+                  <td>{{t.technology_dotNet}}</td>
+                  <td>{{t.stream_ece}}</td>
+                  <td>{{t.stream_cse}}</td>
+                  <td>{{t.stream_it}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Footer-->
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">&copy; 2017 Harshita Paliwal. Built with &#10084; from <a href="https://http://getbootstrap.com/" rel="nofollow">Bootstrap</a>        &amp; <a href="https://angularjs.org/" rel="nofollow">AngularJS</a>.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

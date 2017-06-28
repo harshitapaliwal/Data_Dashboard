@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="author" content="">
+
+    <title>Data Dashboard for hiring</title>
+    <!-- Bootstrap core CSS -->
+
+    <link href="assets\css\bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+
+    <link href="assets\css\sticky-footer.css" rel="stylesheet">
+
+    <link href="assets\css\dashboard.css" rel="stylesheet">
+
+    <!-- Include AngularJS Charts and AngularJS Diretive  -->
+
+    <script src="assets\js\angular.min.js"></script>
+
+    <script src="assets\js\Chart.min.js"></script>
+
+    <script src="assets\js\angular-chart.min.js"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets\js\jquery.min.js"></script>
+
+    <script src="assets\js\bootstrap.min.js"></script>
+
+    <!--AngularJS Controller -->
+    <script type="text/javascript" src="assets\js\controller.js"></script>
+
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Navigation bar Header-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+                <a class="navbar-brand" href="index.html">Recruitment</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <!-- Links in Navigation bar-->
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="index.html">Dashboard</a></li>
+
+                    <li><a href="workflow_description.html">Description</a></li>
+
+                    <li><a href="underConstructionSite.html">Settings</a></li>
+
+                    <li><a href="underConstructionSite.html">Help</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <!-- Dividing Page into Columns-->
+            <div class="col-sm-12 main">
+                <!-- Page Heading-->
+                <h1 class="page-header">WorkFlow Description
+
+                </h1>
+                <!-- Page Text-->
+                <p>
+                    Data Dashboard describes data of students in the form of charts (pie and bar chart) and table so it helps recruiters to decide
+                    which colleges sholud be considered in next hiring session and which colleges to be dropped off based
+                    on the following criteria</p>
+                <ul>
+                    <li>Percentage of students hired in previous hiring session</li>
+                    <li>Average CGPA</li>
+                    <li>Test score in general aptitude test</li>
+                </ul>
+                <p>The Dashboard also gives information about candidates who performed best in certain technology by giving
+                    average test scores from a college and also the average number of students from a particular stream and
+                    college.
+                </p>
+                <p>The dashboard allows you to take a look at data of previous years (By using year filter buttons at the top)
+                    which plays a major role for the recruiter to take the decision.</p>
+
+                <p>The five colleges whose data being displayed are
+                    <ol>
+                        <li>IIT Madras</li>
+                        <li>IIT Bombay</li>
+                        <li>IIT Kharagpur</li>
+                        <li>VIT University</li>
+                        <li>Anna University</li>
+                    </ol>
+                </p>
+                <p>The first is Pie Chart which displays data about percentage of students
+                    <mark><b>Hired Last Year</b></mark> from a particular college</p>
+                <p>Second is bar chart which displays data about
+                    <mark><b>Average CGPA</b></mark> of students of particular college</p>
+                <p>Third bar chart displays average test scores of students in a particular technology from a college.<br> Technologies
+                    considered are
+                    <mark><b>Java, C and DotNet</b></mark>
+                </p>
+                <p>Fourth bar chart displays average percentage of students in a particular stream i.e
+                    <mark><b>ECE, CSE, IT</b></mark> from different colleges</p>
+                <p>Fifth bar chart displays average test score of students in
+                    <mark><b>General Aptitude</b></mark> from a particular college</p>
+                <p>The data is also displayed in the form of table for refrence</p>
+            </div>
+        </div>
+
+        <!-- Footer-->
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">&copy; 2017 Harshita Paliwal. Built with &#10084; from <a href="https://http://getbootstrap.com/" rel="nofollow">Bootstrap</a>                    &amp; <a href="https://angularjs.org/" rel="nofollow">AngularJS</a>.</p>
+            </div>
+        </footer>
+</body>
+
+</html>
